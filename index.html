@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+  
+  
+
+  
+  
+  
+
+  
+
+  <script type="text/javascript" src="/js/lib/dummy.js"></script>
+
+  
+
+  
+
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+  
+
+  
+
+  <style type="text/css">
+    body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+#orderForm {
+  background-color: #eeeeee;
+  border: 4px solid yellow;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 8px;
+  box-shadow: 10px 10px 5px #888888;
+}
+  </style>
+
+  <title>Slava&#39;s Pizzaz by meepbato</title>
+
+  
+    
+
+
+
+
+<script type='text/javascript'>//<![CDATA[
+window.onload=function(){
+// listen for button clicks
+document.getElementById("placeOrder").addEventListener("click", placeOrder);
+
+/**
+ * gets form values
+ * calculates prices
+ * produces output
+ */
+function placeOrder() {
+    // get form values
+    var numPizzas = document.getElementById("numPizzas").value;
+    var typePizza = document.getElementById("typePizza").value;
+    var deliveryCity = document.getElementById("deliveryCity").value;
+    var birthday = document.getElementById("birthday").value;
+
+    // get the pizza price
+    var orderPrice = calculatePrice(numPizzas, typePizza);
+
+    // get the delivery price
+    var deliveryPrice = calculateDelivery(orderPrice, deliveryCity, birthday);
+
+    // create the output
+    var theOutput = "<p>Thank you for your order.</p>";
+
+    // output the delivery price, if there is one
+    if (deliveryPrice === 0) {
+        theOutput += "<p>You get free delivery!</p>";
+    } else {
+        theOutput += "<p>Your delivery cost is: $" + deliveryPrice;
+    }
+
+    theOutput += "<p>Your total is: $" + (orderPrice + deliveryPrice);
+
+    // display the output
+    document.getElementById("displayTotal").innerHTML = theOutput;
+}
+
+/**
+ * calculates pizza price
+ */
+function calculatePrice(numPizzas, typePizza) {
+    var orderPrice = Number(numPizzas) * 10;
+    var extraCharge = 0;
+
+    // calculate extraCharge, if there is one.
+    if (typePizza === "supreme") {
+        extraCharge = Number(numPizzas) * 2;
+    }
+
+    orderPrice += extraCharge;
+    return orderPrice;
+}
+
+/**
+ * calculates delivery price
+ */
+function calculateDelivery(orderPrice, deliveryCity, birthday) {
+    var deliveryPrice = 0;
+
+    // calculate delivery price, if there is one
+    if (((deliveryCity === "Anytown") && (orderPrice > 10)) || (birthday === "yes")) {
+        deliveryPrice = 0;
+    } else {
+        deliveryPrice = 5;
+    }
+    return deliveryPrice;
+}
+}//]]> 
+
+</script>
+
+  
+</head>
+
+<body>
+  <h4>JavaScript presents...</h4> <h1>Slava's Pizzaz</h1>
+
+<div id="orderForm">
+    <label>How many pizzas do you want?
+        <input type="number" id="numPizzas" />
+    </label>
+    <br />
+    <br />
+    <label>What kind of pizzas?
+        <select id="typePizza">
+            <option value="default">Default</option>
+      <option value="cheese">Cheese</option>
+      <option value="pepperoni">Pepperoni</option>
+      <option value="supreme">Supreme</option>
+      <option value="hawaian">Hawaian</option>
+      <option value="slava rava">Slava Rava</option>
+      <option value="mozzarella">Mozzarella</option>
+        </select>
+    </label>
+    <br />
+    <br />
+    <label>Where do you live?
+        <select id="deliveryCity">
+            <option value="Anytown">Anytown, USA</option>
+      <option value="Manila">Australia, Australia</option>
+      <option value="Baguio">Baguio, Philippines</option>
+      <option value="Taygaytay">Denver, USA</option>
+      <option value="Davao">Davao, Philippines</option>
+      <option value="Hong Kong">Hong Kong, China</option>
+      <option value="Cebu">Cairo, Egypt</option>
+        </select>
+    </label>
+    <br />
+    <br />
+    <label>Is it your birthday?
+        <select id="birthday">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+    </label>
+    <br />
+    <br />
+    <button type="button" id="placeOrder">Place Order</button>
+</div>
+<div id="displayTotal"></div>
+  
+</body>
+
+</html>
+
