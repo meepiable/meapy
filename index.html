@@ -1,185 +1,48 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="googlebot" content="noindex, nofollow">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Meapy by meepiable</title>
 
-  
-  
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  
-  
-  
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Meapy</h1>
+        <p>meepy&#39;s projects! : )</p>
+        <p class="view"><a href="https://github.com/meepiable/meapy">View the Project on GitHub <small>meepiable/meapy</small></a></p>
+        <ul>
+          <li><a href="https://github.com/meepiable/meapy/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/meepiable/meapy/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/meepiable/meapy">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <pre><code>                                                 Projects!
+</code></pre>
 
-  
+<p>Project 1: <a href="https://meepiable.github.io/cheese/">Slava's Pizzaz</a></p>
 
-  <script type="text/javascript" src="/js/lib/dummy.js"></script>
+<p>Description: This is my first project I uploaded to <a href="https://github.com/">GitHub websites</a>. This project is about a pizza place called <em><em>Slava's Pizzaz</em></em>. You get to be the customer and order infinity amount of pizzas, but you just have to pay for them! &gt;:)</p>
 
-  
-
-  
-
-  
-
-  
-    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
-  
-
-  
-
-  <style type="text/css">
-    body {
-  font-family: Arial, sans-serif;
-}
-
-h1 {
-  text-align: center;
-}
-
-#orderForm {
-  background-color: #eeeeee;
-  border: 4px solid yellow;
-  border-radius: 4px;
-  padding: 8px;
-  margin: 8px;
-  box-shadow: 10px 10px 5px #888888;
-}
-  </style>
-
-  <title>Slava&#39;s Pizzaz by meepbato</title>
-
-  
+<h6>
+<a id="more-coming-soon" class="anchor" href="#more-coming-soon" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>More coming soon!</h6>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/meepiable">meepiable</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
-
-
-
-
-<script type='text/javascript'>//<![CDATA[
-window.onload=function(){
-// listen for button clicks
-document.getElementById("placeOrder").addEventListener("click", placeOrder);
-
-/**
- * gets form values
- * calculates prices
- * produces output
- */
-function placeOrder() {
-    // get form values
-    var numPizzas = document.getElementById("numPizzas").value;
-    var typePizza = document.getElementById("typePizza").value;
-    var deliveryCity = document.getElementById("deliveryCity").value;
-    var birthday = document.getElementById("birthday").value;
-
-    // get the pizza price
-    var orderPrice = calculatePrice(numPizzas, typePizza);
-
-    // get the delivery price
-    var deliveryPrice = calculateDelivery(orderPrice, deliveryCity, birthday);
-
-    // create the output
-    var theOutput = "<p>Thank you for your order.</p>";
-
-    // output the delivery price, if there is one
-    if (deliveryPrice === 0) {
-        theOutput += "<p>You get free delivery!</p>";
-    } else {
-        theOutput += "<p>Your delivery cost is: $" + deliveryPrice;
-    }
-
-    theOutput += "<p>Your total is: $" + (orderPrice + deliveryPrice);
-
-    // display the output
-    document.getElementById("displayTotal").innerHTML = theOutput;
-}
-
-/**
- * calculates pizza price
- */
-function calculatePrice(numPizzas, typePizza) {
-    var orderPrice = Number(numPizzas) * 10;
-    var extraCharge = 0;
-
-    // calculate extraCharge, if there is one.
-    if (typePizza === "supreme") {
-        extraCharge = Number(numPizzas) * 2;
-    }
-
-    orderPrice += extraCharge;
-    return orderPrice;
-}
-
-/**
- * calculates delivery price
- */
-function calculateDelivery(orderPrice, deliveryCity, birthday) {
-    var deliveryPrice = 0;
-
-    // calculate delivery price, if there is one
-    if (((deliveryCity === "Anytown") && (orderPrice > 10)) || (birthday === "yes")) {
-        deliveryPrice = 0;
-    } else {
-        deliveryPrice = 5;
-    }
-    return deliveryPrice;
-}
-}//]]> 
-
-</script>
-
-  
-</head>
-
-<body>
-  <h4>JavaScript presents...</h4> <h1>Slava's Pizzaz</h1>
-
-<div id="orderForm">
-    <label>How many pizzas do you want?
-        <input type="number" id="numPizzas" />
-    </label>
-    <br />
-    <br />
-    <label>What kind of pizzas?
-        <select id="typePizza">
-            <option value="default">Default</option>
-      <option value="cheese">Cheese</option>
-      <option value="pepperoni">Pepperoni</option>
-      <option value="supreme">Supreme</option>
-      <option value="hawaian">Hawaian</option>
-      <option value="slava rava">Slava Rava</option>
-      <option value="mozzarella">Mozzarella</option>
-        </select>
-    </label>
-    <br />
-    <br />
-    <label>Where do you live?
-        <select id="deliveryCity">
-            <option value="Anytown">Anytown, USA</option>
-      <option value="Manila">Australia, Australia</option>
-      <option value="Baguio">Baguio, Philippines</option>
-      <option value="Taygaytay">Denver, USA</option>
-      <option value="Davao">Davao, Philippines</option>
-      <option value="Hong Kong">Hong Kong, China</option>
-      <option value="Cebu">Cairo, Egypt</option>
-        </select>
-    </label>
-    <br />
-    <br />
-    <label>Is it your birthday?
-        <select id="birthday">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select>
-    </label>
-    <br />
-    <br />
-    <button type="button" id="placeOrder">Place Order</button>
-</div>
-<div id="displayTotal"></div>
-  
-</body>
-
+  </body>
 </html>
-
